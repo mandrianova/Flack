@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Global variables
     let user_name = localStorage.getItem('username');
-    let g_chat_type;
-    let g_chat;
+    let g_chat_type = localStorage.getItem('chat_type');
+    let g_chat = localStorage.getItem('chat');
 
     function get_height() {
         document.querySelector('#chat_window').style.height = window.innerHeight - 270 + "px";
@@ -271,6 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 p_c.removeAttribute('id');
             });
         }
+        localStorage.setItem('chat', g_chat);
+        localStorage.setItem('chat_type', g_chat_type);
     }
     function key_enter(input_name, button_name) {
         let input = document.querySelector(input_name);

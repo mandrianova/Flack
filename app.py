@@ -27,7 +27,6 @@ def get_chat_name(chat_type, chat_n, user_name):
 
 @app.route("/")
 def index():
-    print(users, channels)
     return render_template("index.html", users=sorted(users), channels=sorted(channels))
 
 
@@ -61,7 +60,6 @@ def send_message(data):
         chat_name = get_chat_name(data['chat_type'], data['chat'], data['user_name'])
         if not messages.get(chat_name):
             messages[chat_name] = []
-        date = str(datetime.now())[0: -7]
         messages[chat_name].append({'date': data['date'], 'user': data['user_name'], 'message': data['message']})
         if len(messages[chat_name]) > 100:
             del messages[chat_name][0]
