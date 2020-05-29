@@ -1,1 +1,1 @@
-web: gunicorn flack-mandrianova:app
+web: gunicorn app:app
