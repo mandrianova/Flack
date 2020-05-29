@@ -4,6 +4,8 @@ Web Programming with Python and JavaScript
 
 [Project on Heroku](https://flack-mandrianova.herokuapp.com/)
 
+[Video on YouTube](https://youtu.be/MmLte1ii_5A)
+
 I added gunicorn and eventlet in requirements and Procfile for deploying.
 
 ## The chat possibilities
