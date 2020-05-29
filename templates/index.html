@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container fixed-top chat_body">
+
+        <div class="row">
+            <div class="col-md-4 border-right bg-light" id="chats_list">
+                <div class="input-group my-4">
+
+                    <input placeholder="Add channel" aria-label="Add channel" class="form-control" type="text" name="channel" id="channel">
+                    <button class="btn btn-outline-dark my-sm-0" type="submit" id="add_channel">Add</button>
+                </div>
+                <div><h4 class="text-muted">Users</h4></div>
+                <div class="users">
+                    {% for user in users %}
+                    <p class="user_link">{{ user }}</p>
+                    {% endfor %}
+                </div>
+                <div><h4 class="text-muted">Channels</h4></div>
+                <div class="channels">
+                    {% for channel in channels %}
+                        <p class="channel_link">{{ channel}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="row border-bottom px-3 my-3" id="chat_name"></h2>
+                <div class="row alert alert-warning" role="alert" id="error" hidden>{{ error }}</div>
+                <div id="chat_window">
+                    <div id="messages"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="container fixed-bottom">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="input-group chat_input col-md-8 px-0">
+            <input type="text" id="message" name="message" class="form-control w-100 h-100" placeholder="Write a message" aria-label="Write a message">
+            <button class="btn btn-outline-dark my-sm-0 h-100" type="submit" id="send">Send</button>
+        </div>
+    </div>
+
+</div>
+
+<nav class="navbar navbar-light bg-light border-bottom fixed-top">
+        <div class="container">
+                <a class="navbar-brand" href="/"><h1>Flack</h1></a>
+            <form class="form-inline">
+                <span class="navbar-text" id="name" hidden>
+                        <span id="p_name"></span>
+                        <span class="mx-3"><a href="#" id="logout">Log out</a></span>
+                    </span>
+
+                    <div class="input-group" id="login" hidden>
+                              <div class="input-group-prepend h-100">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                              </div>
+                        <input class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" type="text" name="username" id="username">
+                        <button class="btn btn-outline-dark my-sm-0" type="submit" id="join">Join</button>
+                    </div>
+            </form>
+        </div>
+</nav>
+
+
+
+
+{% endblock %}
