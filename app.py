@@ -62,7 +62,7 @@ def send_message(data):
         if not messages.get(chat_name):
             messages[chat_name] = []
         date = str(datetime.now())[0: -7]
-        messages[chat_name].append({'date': date, 'user': data['user_name'], 'message': data['message']})
+        messages[chat_name].append({'date': data['date'], 'user': data['user_name'], 'message': data['message']})
         if len(messages[chat_name]) > 100:
             del messages[chat_name][0]
         emit("chat", {'chat': chat_name}, broadcast=True)

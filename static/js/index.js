@@ -189,13 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const text = document.querySelector('#message').value;
             const chat_type = g_chat_type;
             const chat = g_chat;
-            socket.emit('send', {'chat_type': chat_type, 'user_name': user_name, 'chat': chat, 'message': text});
+            socket.emit('send', {'chat_type': chat_type, 'user_name': user_name, 'chat': chat, 'message': text, 'date': moment.utc()});
             open_chat(chat, chat_type);
             document.querySelector('#message').value = '';
             document.querySelector('#send').disabled = true;
         };
     });
-
 
     // Add new channels and new users
     socket.on('joined', data => {
