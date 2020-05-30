@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             span.onclick = () => {
                                 let message_id = span.getAttribute('data-id');
                                 socket.emit('delete_message', {'chat': g_chat, 'chat_type': g_chat_type, 'id': message_id, 'user_name': user_name});
-                                open_chat(g_chat, g_chat_type);
                             };
                         });
                     }
@@ -187,10 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Send message
         document.querySelector('#send').onclick = () => {
             const text = document.querySelector('#message').value;
-            const chat_type = g_chat_type;
-            const chat = g_chat;
-            socket.emit('send', {'chat_type': chat_type, 'user_name': user_name, 'chat': chat, 'message': text, 'date': moment.utc()});
-            open_chat(chat, chat_type);
+            socket.emit('send', {'chat_type': g_chat_type, 'user_name': user_name, 'chat': g_chat, 'message': text, 'date': moment.utc()});
             document.querySelector('#message').value = '';
             document.querySelector('#send').disabled = true;
         };
