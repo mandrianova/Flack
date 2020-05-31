@@ -1,8 +1,7 @@
 import os
-from datetime import datetime
 
 from flask import Flask, render_template, request, jsonify
-from flask_socketio import SocketIO, emit, send
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
